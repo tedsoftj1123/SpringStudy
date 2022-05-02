@@ -1,10 +1,10 @@
-package com.example.db;
+package com.example.db_study;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DbApplicationTests {
+class DbStudyApplicationTests {
 
     @Test
     void contextLoads() {
