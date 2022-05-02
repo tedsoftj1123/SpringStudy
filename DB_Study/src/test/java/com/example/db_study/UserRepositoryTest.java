@@ -5,9 +5,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Slf4j
-public class UserRepositoryTest extends DbStudyApplicationTests {
+public class UserRepositoryTest extends DbStudyApplicationTests{
 
     @Autowired
     private UserRepository userRepository;
@@ -27,5 +28,13 @@ public class UserRepositoryTest extends DbStudyApplicationTests {
         // Create!
         User newUser = userRepository.save(user);
         log.info(newUser.toString());
+    }
+    @Test
+    public void read(){
+        Optional<User> user =userRepository.findById(1L);
+
+        user.ifPresent(selectUser -> {
+            log.info(selectUser.toString());
+        });
     }
 }
