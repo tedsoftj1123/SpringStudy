@@ -15,7 +15,6 @@ public class UserRepositoryTest extends DbStudyApplicationTests{
 
     @Test
     public void create() {
-        // User 생성
         User user =
                 User.builder()
                         .account("Test User 03")
@@ -25,7 +24,6 @@ public class UserRepositoryTest extends DbStudyApplicationTests{
                         .createdBy("admin")
                         .build();
 
-        // Create!
         User newUser = userRepository.save(user);
         log.info(newUser.toString());
     }

@@ -2,6 +2,8 @@ package com.example.study.controller;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 //이제 이 클래스는 컨트롤러일을 한다.
 @RestController
 @RequestMapping("/aaa")//localhost:8080/aaa 로 오는 요청을 처리한다.
@@ -30,5 +32,15 @@ public class GetController {
             @RequestParam String email,
             @RequestParam String organization) {
         return name+" "+email+ " " + organization;
+    }
+
+    @GetMapping(value = "/request2")
+    public String getRequestParam2(@RequestParam Map<String, String> param) {
+        StringBuilder sb = new StringBuilder();
+
+        param.entrySet().forEach((key, value) -> {
+            sb.append(map.getKey() + " : " + value + "\n");
+        });
+        return sb.toString();
     }
 }
