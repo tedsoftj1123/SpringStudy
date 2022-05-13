@@ -20,7 +20,8 @@ public class AccountingApp {
 
         System.out.println(a1.getTotal());
         System.out.println(a2.getTotal());
-        /*Accounting.valueOfSupply = 10000.0;
+        /*
+        Accounting.valueOfSupply = 10000.0;
         System.out.println("Value of supply : " + Accounting.valueOfSupply);
         System.out.println("VAT : " + Accounting.getVAT());
         System.out.println("Total : " + Accounting.getTotal());*/
