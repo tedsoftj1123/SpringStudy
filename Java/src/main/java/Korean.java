@@ -1,5 +1,4 @@
 public class Korean {
-    String nation = "한국";
     String name;
     String ssn;
 

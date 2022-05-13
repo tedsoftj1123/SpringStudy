@@ -9,6 +9,4 @@ public class Main {
         System.out.println("k2.name : " + k2.name);
         System.out.println("k2.ssn : " + k2.ssn);
     }
-
-
 }
