@@ -4,6 +4,7 @@ package com.example.spring.controller;
 import com.example.spring.DTO.MemberDTO;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.Map;
 
 @RestController// 얘는 컨트롤러다 명시해줌 RerquestBody + controller
@@ -34,7 +35,6 @@ public class HelloController {
             @RequestParam String organization) {
         return name+" "+email+" "+organization;
     }
-
     @GetMapping(value = "/request2")// 위에껀 형식이 정해져 있다 하지만 이 방법으론 어떤 요청 없이 들어올지 모를 경우 사용하는 방식이다.
     public String getRequestParam2(@RequestParam Map<String, String> param){
         StringBuilder sb = new StringBuilder();
