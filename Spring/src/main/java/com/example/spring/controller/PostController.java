@@ -1,14 +1,20 @@
 package com.example.spring.controller;
 
-import com.example.spring.DTO.PostDTO;
+import com.example.spring.TestService;
+import com.example.spring.dto.PostDTO;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
+@RequiredArgsConstructor
 @RestController
 public class PostController {
+
+    private final TestService testService;
+
     @PostMapping(value = "/default")
     public String postMethod() {
         return "Hello World!";
@@ -26,6 +32,7 @@ public class PostController {
 
     @PostMapping(value = "/member2")
     public String postMemberDto(@RequestBody PostDTO postDTO) {
+        testService.test();
         return postDTO.toString();
     }
 }

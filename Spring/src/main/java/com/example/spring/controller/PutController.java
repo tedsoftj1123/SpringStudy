@@ -1,6 +1,6 @@
 package com.example.spring.controller;
 
-import com.example.spring.DTO.MemberDTO;
+import com.example.spring.dto.MemberDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -36,4 +36,6 @@ public class PutController {
     public ResponseEntity<MemberDTO> postMemberDto3(@RequestBody MemberDTO memberDTO) {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(memberDTO);
     }
+
+
 }

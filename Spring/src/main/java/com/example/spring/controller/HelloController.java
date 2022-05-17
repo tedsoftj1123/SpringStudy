@@ -1,10 +1,9 @@
 package com.example.spring.controller;
 
 
-import com.example.spring.DTO.MemberDTO;
+import com.example.spring.dto.MemberDTO;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
 import java.util.Map;
 
 @RestController// 얘는 컨트롤러다 명시해줌 RerquestBody + controller
@@ -27,7 +26,6 @@ public class HelloController {
     public String getVariable2(@PathVariable("variable") String var) {
         return var;
     }
-
     @GetMapping(value = "/request1") // http://..../request1<<?name=ted&email=test@test.com&organization=dms>>
     public String getRequestParam1(
             @RequestParam String name,
@@ -39,9 +37,7 @@ public class HelloController {
     public String getRequestParam2(@RequestParam Map<String, String> param){
         StringBuilder sb = new StringBuilder();
 
-        param.entrySet().forEach(map -> {
-            sb.append(map.getKey()+":"+map.getValue()+"\n");
-        });
+        param.forEach((key, value) -> sb.append(key).append(":").append(value).append("\n"));
 
         return sb.toString();
     }

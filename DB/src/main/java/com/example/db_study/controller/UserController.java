@@ -12,9 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     private final UserService userService;
-
+    /*
+    public String UserController(UserService userService) {
+        this.userService = userService
+    }
+     */
     @PostMapping
     public String signup(@RequestBody UserDto userDto) {
         return userService.signup(userDto);
-    }
+    }//DTO를 사용해 UserService로 데이터 전송
 }

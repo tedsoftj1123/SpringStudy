@@ -6,7 +6,12 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class UserDto {
+    /*
+    public UserDto() {
 
+    }
+    쓸 필요가 없다.
+     */
     private String email;
 
     private String password;

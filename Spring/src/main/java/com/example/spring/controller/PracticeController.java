@@ -1,9 +1,7 @@
 package com.example.spring.controller;
 
-import com.example.spring.DTO.PracticeDTO;
+import com.example.spring.dto.PracticeDTO;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 @RestController
 public class PracticeController {
