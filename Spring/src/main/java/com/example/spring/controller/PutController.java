@@ -1,6 +1,9 @@
 package com.example.spring.controller;
 
 import com.example.spring.dto.MemberDTO;
+import com.example.spring.dto.UserDTO;
+import com.example.spring.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -10,7 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
+@RequiredArgsConstructor
 public class PutController {
+
+    private final UserService userService;
     @PutMapping(value = "/putapi")
     public String putMethod(){return "HelloWorld!";}
 
@@ -18,9 +24,7 @@ public class PutController {
     public String postMember(@RequestBody Map<String, Object> postData) {
         StringBuilder sb3 = new StringBuilder();
 
-        postData.entrySet().forEach(map -> {
-            sb3.append(map.getKey()+" : "+map.getValue()+"\n");
-        });
+        postData.forEach((key, value) -> sb3.append(key).append(" : ").append(value).append("\n"));
         return sb3.toString();
     }
 
@@ -37,5 +41,8 @@ public class PutController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(memberDTO);
     }
 
-
+    @PutMapping(value = "/signup")
+    public String userSignup(@RequestBody UserDTO userDTO) {
+        return userService.signup(userDTO);
+    }
 }

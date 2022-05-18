@@ -1,6 +1,6 @@
 package com.example.spring.controller;
 
-import com.example.spring.TestService;
+import com.example.spring.service.TestService;
 import com.example.spring.dto.PostDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,9 +24,7 @@ public class PostController {
     public String postMember(@RequestBody Map<String, Object> postData) {
         StringBuilder sb2 = new StringBuilder();
 
-        postData.entrySet().forEach(map -> {
-            sb2.append(map.getKey() + " : " + map.getValue() + "\n");
-        });
+        postData.forEach((key, value) -> sb2.append(key).append(" : ").append(value).append("\n"));
         return sb2.toString();
     }
 
