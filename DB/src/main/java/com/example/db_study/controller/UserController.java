@@ -17,7 +17,7 @@ public class UserController {
         this.userService = userService
     }
      */
-    @PostMapping
+    @PostMapping("/")
     public String signup(@RequestBody UserDto userDto) {
         return userService.signup(userDto);
     }//DTO를 사용해 UserService로 데이터 전송

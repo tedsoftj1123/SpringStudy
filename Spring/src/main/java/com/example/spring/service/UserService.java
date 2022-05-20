@@ -13,9 +13,10 @@ public class UserService {
     private final UserRepository userRepository;
     public String signup(UserDTO userDTO) {
         userRepository.save(User.builder()
-                .ProductName(userDTO.getProductName())
-                .ProductPrice(userDTO.getProductPrise())
+                .productName(userDTO.getProductName())
+                .productPrice(userDTO.getProductPrise())
                 .build());
-        return "회원가입 겟또다제";
+        return "회원가입 성공";
     }
+
 }

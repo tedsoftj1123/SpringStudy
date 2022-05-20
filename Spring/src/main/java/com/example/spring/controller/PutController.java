@@ -13,10 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-@RequiredArgsConstructor
 public class PutController {
 
-    private final UserService userService;
     @PutMapping(value = "/putapi")
     public String putMethod(){return "HelloWorld!";}
 
@@ -39,10 +37,5 @@ public class PutController {
     @PutMapping(value = "/putapi5")
     public ResponseEntity<MemberDTO> postMemberDto3(@RequestBody MemberDTO memberDTO) {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(memberDTO);
-    }
-
-    @PutMapping(value = "/signup")
-    public String userSignup(@RequestBody UserDTO userDTO) {
-        return userService.signup(userDTO);
     }
 }

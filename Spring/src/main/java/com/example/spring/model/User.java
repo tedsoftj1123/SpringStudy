@@ -16,10 +16,10 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
-    private String ProductName;
+    private String productName;
 
-    private String ProductPrice;
+    private String productPrice;
 }
 
