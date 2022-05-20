@@ -17,12 +17,11 @@ public class CountController {
 
     @PutMapping("/count")
     public String addCount(@RequestParam Long id, @RequestBody ProductEntity productEntity) {
-        Optional<ProductEntity> updateProduct = productRepository.findById(id);
+        Optional<ProductEntity> updateCount = productRepository.findById(id);
 
-        updateProduct.ifPresent(selectProductEntity->{
-            selectProductEntity.setProduct_count(productEntity.getProduct_count());
-
-            productRepository.save(selectProductEntity);
+        updateCount.ifPresent(selectProduct->{
+            selectProduct.setCount(productEntity.getId());
+            selectProduct.setCount(productEntity.getCount());
         });
         return null;
     }

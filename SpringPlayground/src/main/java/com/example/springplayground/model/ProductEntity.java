@@ -9,15 +9,15 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
+@Table(name = "productlist")
 @Builder
 public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String product_name;
+    private String productName;
+    private Long price;
 
-    private Long product_price;
-
-    private Long product_count;
+    private Long count;
 }
