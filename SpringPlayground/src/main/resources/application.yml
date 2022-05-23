@@ -8,5 +8,3 @@ spring:
     password: ${DB_PASSWORD:11111111}
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${DB_URL:localhost}:3306/${DB_NAME:productdb}?serverTimezone=UTC&characterEncoding=UTF-8
-  jackson:
-    property-naming-strategy: PRODUCT_LIST

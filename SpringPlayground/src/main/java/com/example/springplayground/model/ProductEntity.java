@@ -7,17 +7,17 @@ import javax.persistence.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
-@Table(name = "productlist")
+@Data
 @Builder
 public class ProductEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String productName;
-    private Long price;
+    private String product_name;
 
-    private Long count;
+    private Long product_price;
+
+    private Long product_count;
 }
