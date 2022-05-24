@@ -3,12 +3,15 @@ package com.example.spring2.service;
 import com.example.spring2.domain.Member;
 import com.example.spring2.repository.MemberRepository;
 import com.example.spring2.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service //컴포넌트 스캔
 public class MemberService {
     private final MemberRepository memberRepository;
+    @Autowired // memberrepository 로 의존관계 설정
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
