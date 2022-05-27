@@ -4,6 +4,7 @@ package com.example.spring.controller;
 import com.example.spring.dto.MemberDTO;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Member;
 import java.util.Map;
 
 @RestController// 얘는 컨트롤러다 명시해줌 RerquestBody + controller
@@ -43,8 +44,15 @@ public class HelloController {
     }
 
     @GetMapping(value = "/request3")// 전전꺼랑 같다, ,key와 value가 정해져 있지만 파라미터 가 너무 많으면 이 방법을 사용한다.
-    public String getRequestParam3(MemberDTO memberDTO){
+    public Object getRequestParam3(@RequestBody MemberDTO memberDTO){
+        return memberDTO;
+    }
 
-        return memberDTO.toString();
+    @GetMapping("/aaaa")
+    public MemberDTO aaaa() {
+
+        MemberDTO dto = new MemberDTO("asdf", "asdf", "asdf");
+
+        return dto;
     }
 }
