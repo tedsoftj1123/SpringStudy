@@ -6,9 +6,6 @@ import com.example.springplayground.model.ProductEntity;
 import com.example.springplayground.model.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
-
 @Service
 @RequiredArgsConstructor
 public class ProductService {
