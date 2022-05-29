@@ -4,7 +4,7 @@ spring:
       ddl-auto: update
     database: mysql
   datasource:
-    username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:11111111}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${DB_URL:localhost}:3306/${DB_NAME:productdb}?serverTimezone=UTC&characterEncoding=UTF-8
+    url: jdbc:mysql://${DB_URL}:3306/${DB_NAME}?serverTimezone=UTC&characterEncoding=UTF-8
