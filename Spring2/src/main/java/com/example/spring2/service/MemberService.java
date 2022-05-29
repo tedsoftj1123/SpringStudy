@@ -6,16 +6,15 @@ import com.example.spring2.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
-@Service //컴포넌트 스캔
 public class MemberService {
-    private final MemberRepository memberRepository;
-    @Autowired // memberrepository 로 의존관계 설정
+    private final MemberRepository memberRepository;// memberrepository 로 의존관계 설정
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
-    public Long join(Member member) {
+    public Long join(Member member) throws SQLException {
         validateDuplicateMember(member);
         memberRepository.save(member);
         return member.getId();

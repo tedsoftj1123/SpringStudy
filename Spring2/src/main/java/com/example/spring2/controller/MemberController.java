@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /*
@@ -15,12 +16,9 @@ import java.util.List;
  spring 빈으로 자동 등록되는데 @controller, @service, @repository 에는 @componont가
  들어있어서 자동으로 등록된다.
  */
-
-@Controller// 컴포너트 스캔
+@Controller
 public class MemberController {
-    private final MemberService memberService;
-
-    @Autowired // memberservice로 의존관계 설정
+    private final MemberService memberService;// memberservice로 의존관계 설정
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
     }
@@ -30,7 +28,7 @@ public class MemberController {
         return "members/createMemberForm";
     }
     @PostMapping("/members/new")
-    public String create(MemberForm form) {
+    public String create(MemberForm form) throws SQLException {
         Member member = new Member();
         member.setName(form.getName());
 
