@@ -51,8 +51,6 @@ public class HelloController {
     @GetMapping("/aaaa")
     public MemberDTO aaaa() {
 
-        MemberDTO dto = new MemberDTO("asdf", "asdf", "asdf");
-
-        return dto;
+        return new MemberDTO("asdf", "asdf", "asdf");
     }
 }
