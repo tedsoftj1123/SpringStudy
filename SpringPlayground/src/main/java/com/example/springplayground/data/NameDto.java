@@ -1,18 +1,13 @@
 package com.example.springplayground.data;
 
+import lombok.Data;
 
-
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
-@Getter
-@NoArgsConstructor
-public class ProductDto {
+@Data
+public class NameDto {
 
     private String product_name;
 
     private Long product_price;
 
     private Long product_count;
-    .mapp
 }

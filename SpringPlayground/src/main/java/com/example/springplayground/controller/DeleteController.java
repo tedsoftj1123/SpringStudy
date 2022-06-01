@@ -1,2 +1,3 @@
-package com.example.springplayground.controller;public class DeleteController {
+package com.example.springplayground.controller;
+public class DeleteController {
 }
