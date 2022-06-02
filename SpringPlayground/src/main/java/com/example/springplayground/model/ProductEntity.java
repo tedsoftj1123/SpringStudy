@@ -4,20 +4,20 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Entity
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Builder
+@Entity
 public class ProductEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String productName;
 
-    private String product_name;
+    private Long productPrice;
 
-    private Long product_price;
-
-    private Long product_count;
+    private Long productCount;
 }

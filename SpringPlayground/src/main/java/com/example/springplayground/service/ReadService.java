@@ -4,6 +4,8 @@ import com.example.springplayground.model.ProductEntity;
 import com.example.springplayground.model.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -15,7 +17,8 @@ public class ReadService {
         return productRepository.findAll();
     }
 
-    public String showName(NameDto nameDto) {
-        return nameDto.getProduct_name();
+
+    public List<NameDto> showName() {
+        return productRepository.findAll();
     }
 }

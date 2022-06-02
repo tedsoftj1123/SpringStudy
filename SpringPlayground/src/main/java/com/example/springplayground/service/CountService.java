@@ -19,7 +19,7 @@ public class CountService {
         Optional<ProductEntity> updateCount = productRepository.findById(id);
 
         updateCount.ifPresent(selectProduct->{
-            selectProduct.setProduct_count(productDto.getProduct_count());
+            selectProduct.setProductCount(productDto.getProductCount());
 
             productRepository.save(selectProduct);
         });

@@ -14,9 +14,9 @@ public class ProductService {
 
     public String addProduct(ProductDto productDto) {
         productRepository.save(ProductEntity.builder()
-                .product_name(productDto.getProduct_name())
-                .product_price(productDto.getProduct_price())
-                .product_count(productDto.getProduct_count())
+                .productName(productDto.getProductName())
+                .productPrice(productDto.getProductPrice())
+                .productCount(productDto.getProductCount())
                 .build());
         return "상품이 추가되었습니다.";
     }

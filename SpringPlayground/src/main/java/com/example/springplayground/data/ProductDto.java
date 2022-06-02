@@ -9,10 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ProductDto {
 
-    private String product_name;
+    private String productName;
 
-    private Long product_price;
+    private Long productPrice;
 
-    private Long product_count;
-    .mapp
+    private Long productCount;
 }
