@@ -1,11 +1,10 @@
-package CollectionFramework;
+package CollectionFramework.List;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 
-public class List {
+public class ArrayListExample {
     public static void main(String[] args) {
         ArrayList<Integer> arrayList = new ArrayList<>();
 
@@ -40,7 +39,6 @@ public class List {
         }
         System.out.println("-------------------------");
         System.out.println(arrayList.size());
-
-        
     }
 }
+
