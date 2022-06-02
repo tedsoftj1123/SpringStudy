@@ -40,5 +40,7 @@ public class List {
         }
         System.out.println("-------------------------");
         System.out.println(arrayList.size());
+
+        
     }
 }
