@@ -15,8 +15,4 @@ public interface InterfaceExample {
             System.out.println("unmute");
         }
     }
-
-    static void changeBattery() {
-        System.out.println("change battery");
-    }
 }
