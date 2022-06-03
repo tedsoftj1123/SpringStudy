@@ -1,29 +1,26 @@
 package com.example.spring2.service;
 
 import com.example.spring2.domain.Member;
+import com.example.spring2.repository.MemberRepository;
 import com.example.spring2.repository.MemoryMemberRepository;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@SpringBootTest //스프링 컨테이너와 테스트를 함께 실행한다.
+@Transactional //테스트 시작 전에 트랜잭션을 시작하고 테스트 후 항상 롤백
+class MemberServiceIntegrationTest {
 
-class MemberServiceTest {
-
-    MemberService memberService;
-    MemoryMemberRepository memberRepository;
-    @BeforeEach
-    public void beforeEach() {
-        memberRepository = new MemoryMemberRepository();
-        memberService = new MemberService(memberRepository);
-    }
-    @AfterEach
-    public void afterEach() {
-        memberRepository.clearStore();
-    }
+    @Autowired MemberService memberService;
+    @Autowired MemberRepository memberRepository;
     @Test
+    //@Commit 이 있으면 롤백하지 않는다.
     public void 회원가입() throws Exception {
         //Given
         Member member = new Member();

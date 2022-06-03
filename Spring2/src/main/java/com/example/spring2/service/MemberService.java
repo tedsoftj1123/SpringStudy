@@ -2,10 +2,6 @@ package com.example.spring2.service;
 
 import com.example.spring2.domain.Member;
 import com.example.spring2.repository.MemberRepository;
-import com.example.spring2.repository.MemoryMemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
