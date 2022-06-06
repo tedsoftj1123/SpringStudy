@@ -2,6 +2,7 @@ package com.example.spring2.service;
 
 import com.example.spring2.domain.Member;
 import com.example.spring2.repository.MemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
