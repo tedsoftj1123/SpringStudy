@@ -1,5 +1,5 @@
 package com.example.springplayground.model;
 
-public interface ProductMapping {
+public interface ProductNameMapping {
     String getProductName();
 }

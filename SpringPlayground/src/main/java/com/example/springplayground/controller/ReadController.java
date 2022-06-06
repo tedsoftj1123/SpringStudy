@@ -1,6 +1,6 @@
 package com.example.springplayground.controller;
-import com.example.springplayground.data.NameDto;
 import com.example.springplayground.model.ProductEntity;
+import com.example.springplayground.model.ProductNameMapping;
 import com.example.springplayground.service.ReadService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +23,7 @@ public class ReadController {
     }
 
     @GetMapping("/showname")
-    public List<NameDto> showName() {
+    public List<ProductNameMapping> showName() {
         return readService.showName();
     }
 }
