@@ -1,4 +1,5 @@
 package com.example.springplayground.service;
+import com.example.springplayground.data.TestDto;
 import com.example.springplayground.model.ProductEntity;
 import com.example.springplayground.model.ProductNameMapping;
 import com.example.springplayground.model.ProductRepository;
@@ -21,5 +22,13 @@ public class ReadService {
 
     public List<ProductNameMapping> showName() {
         return productRepository.findAllBy();
+    }
+
+    public TestDto get(Long id) {
+        return productRepository.findById(id)
+                .map(a -> TestDto.builder()
+                        .test(a.getProductName())
+                        .build())
+                .orElseThrow(RuntimeException::new);
     }
 }
