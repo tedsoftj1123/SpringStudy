@@ -1,11 +1,14 @@
 spring:
-  jpa:
-    hibernate:
-      ddl-auto: update
-    database: mysql
   datasource:
-    username: root
-    password: 11111111
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/productdb?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: 11111111
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
 
+  jackson:
+    property-naming-strategy: SNAKE_CASE
