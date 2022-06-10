@@ -1,6 +1,7 @@
 package com.example.springmemberservice.domain;
 
 import lombok.*;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,18 +12,14 @@ import javax.persistence.Id;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue
     private Long id;
-    private String name;
+    private String username;
     private String password;
-    private Long age;
-    private String email;
     @Builder
-    public Member(Long id, String name, String password, Long age, String email) {
+    public Member(Long id, String username, String password) {
         this.id = id;
-        this.name = name;
+        this.username = username;
         this.password = password;
-        this.age = age;
-        this.email = email;
     }
 }

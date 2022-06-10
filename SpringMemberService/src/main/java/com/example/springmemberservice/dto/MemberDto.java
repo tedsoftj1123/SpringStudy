@@ -7,37 +7,26 @@ import lombok.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-@Getter
-@Setter
+@Getter @Setter
 @NoArgsConstructor
 public class MemberDto {
     private Long id;
-    @NotBlank
-    private String name;
-    @NotBlank
+    private String username;
     private String password;
-
-    private Long age;
-    @Email()
-    private String email;
 
     public Member toEntity() {
         return Member.builder()
                 .id(id)
-                .name(name)
+                .username(username)
                 .password(password)
-                .age(age)
-                .email(email)
                 .build();
     }
 
     @Builder
-    public MemberDto(Long id, String name, String password, Long age, String email){
+    public MemberDto(Long id, String username, String password){
         this.id = id;
-        this.name = name;
+        this.username = username;
         this.password = password;
-        this.age = age;
-        this.email = email;
     }
 
 }

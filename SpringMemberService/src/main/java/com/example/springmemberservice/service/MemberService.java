@@ -24,7 +24,7 @@ import java.util.Optional;
 public class MemberService implements UserDetailsService {
     private MemberRepository memberRepository;
     @Transactional
-    public Long login(MemberDto memberDto) {
+    public Long signUp(MemberDto memberDto) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         memberDto.setPassword(passwordEncoder.encode(memberDto.getPassword()));
 
@@ -33,7 +33,7 @@ public class MemberService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<Member> memberWrapper = memberRepository.findByName(username);
+        Optional<Member> memberWrapper = memberRepository.findByUsername(username);
         Member member = memberWrapper.get();
         List<GrantedAuthority> authorities = new ArrayList<>();
         if("admin".equals(username)){
@@ -41,6 +41,6 @@ public class MemberService implements UserDetailsService {
         } else {
             authorities.add(new SimpleGrantedAuthority(Role.MEMBER.getValue()));
         }
-        return new User(member.getName(), member.getPassword(), authorities);
+        return new User(member.getUsername(), member.getPassword(), authorities);
     }
 }

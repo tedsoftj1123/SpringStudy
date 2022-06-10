@@ -1,9 +1,11 @@
+server:
+  port: 9088
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/productdb?serverTimezone=UTC&characterEncoding=UTF-8
-    username: root
-    password: 11111111
+    url: ${url}
+    username: ${USER_NAME}
+    password: ${USER_PASSWORD}
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
