@@ -4,9 +4,6 @@ package com.example.springmemberservice.dto;
 import com.example.springmemberservice.domain.Member;
 import lombok.*;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-
 @Getter @Setter
 @NoArgsConstructor
 public class MemberDto {
