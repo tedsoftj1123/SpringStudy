@@ -2,13 +2,11 @@ package com.example.springmemberservice.controller;
 import com.example.springmemberservice.dto.MemberDto;
 import com.example.springmemberservice.service.MemberService;
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 @AllArgsConstructor
@@ -33,7 +31,10 @@ public class MemberController {
 
         return "redirect:/";
     }
-
+    @PostMapping("/member/login")
+    public String login(@RequestBody MemberDto memberDto){
+        return memberService.login(memberDto);
+    }
     @GetMapping("/member/login")
     public String login() {
         return "/member/loginForm";

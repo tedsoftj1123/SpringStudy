@@ -10,7 +10,6 @@ public class MemberDto {
     private Long id;
     private String username;
     private String password;
-
     public Member toEntity() {
         return Member.builder()
                 .id(id)
@@ -25,5 +24,4 @@ public class MemberDto {
         this.username = username;
         this.password = password;
     }
-
 }

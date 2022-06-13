@@ -23,19 +23,33 @@ import java.util.Optional;
 @AllArgsConstructor
 public class MemberService implements UserDetailsService {
     private MemberRepository memberRepository;
+
+    // 회원가입
     @Transactional
     public Long signUp(MemberDto memberDto) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         memberDto.setPassword(passwordEncoder.encode(memberDto.getPassword()));
 
+        // password를 암호화 한 뒤 dp에 저장
+
         return memberRepository.save(memberDto.toEntity()).getId();
     }
-
+    public String login(MemberDto req){
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        Member member = memberRepository.findByUsername(req.getUsername())
+                .orElseThrow(RuntimeException::new);
+        if(!passwordEncoder.matches(req.getPassword(), member.getPassword())){
+            throw new RuntimeException();
+        }
+        return "redirect:/";
+    }
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<Member> memberWrapper = memberRepository.findByUsername(username);
         Member member = memberWrapper.get();
+
         List<GrantedAuthority> authorities = new ArrayList<>();
+
         if("admin".equals(username)){
             authorities.add(new SimpleGrantedAuthority(Role.ADMIN.getValue()));
         } else {
@@ -43,4 +57,5 @@ public class MemberService implements UserDetailsService {
         }
         return new User(member.getUsername(), member.getPassword(), authorities);
     }
+
 }
