@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 @AllArgsConstructor
@@ -32,8 +31,9 @@ public class MemberController {
         return "redirect:/";
     }
     @PostMapping("/member/login")
-    public String login(@RequestBody MemberDto memberDto){
-        return memberService.login(memberDto);
+    public String login(MemberDto memberDto){
+        memberService.login(memberDto);
+        return "redirect:/";
     }
     @GetMapping("/member/login")
     public String login() {

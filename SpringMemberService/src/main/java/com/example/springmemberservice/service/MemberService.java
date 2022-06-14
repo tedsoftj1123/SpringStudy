@@ -41,6 +41,7 @@ public class MemberService implements UserDetailsService {
         if(!passwordEncoder.matches(req.getPassword(), member.getPassword())){
             throw new RuntimeException();
         }
+        System.out.println("로그인됨");
         return "redirect:/";
     }
     @Override
