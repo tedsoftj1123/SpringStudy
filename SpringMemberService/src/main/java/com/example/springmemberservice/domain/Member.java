@@ -1,6 +1,11 @@
 package com.example.springmemberservice.domain;
 
 import lombok.*;
+<<<<<<< HEAD
+import org.springframework.security.core.userdetails.User;
+
+import javax.persistence.*;
+=======
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -11,17 +16,29 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
+>>>>>>> v4
 
 @Entity
 @Getter
 @Builder
+<<<<<<< HEAD
+@AllArgsConstructor
+@NoArgsConstructor
+public class Member {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+=======
 @NoArgsConstructor
 @AllArgsConstructor
 public class Member implements UserDetails{
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+>>>>>>> v4
     private Long id;
     private String email;
     private String password;
+<<<<<<< HEAD
+    private String auth;
+=======
 
     @ElementCollection(fetch = FetchType.EAGER)
     @Builder.Default
@@ -57,4 +74,5 @@ public class Member implements UserDetails{
     public boolean isEnabled() {
         return true;
     }
+>>>>>>> v4
 }
