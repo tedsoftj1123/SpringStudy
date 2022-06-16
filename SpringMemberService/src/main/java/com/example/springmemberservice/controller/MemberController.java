@@ -1,42 +1,47 @@
 package com.example.springmemberservice.controller;
-import com.example.springmemberservice.dto.MemberDto;
-import com.example.springmemberservice.service.MemberService;
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import com.example.springmemberservice.domain.Member;
+import com.example.springmemberservice.jwt.JwtTokenProvider;
+import com.example.springmemberservice.repository.MemberRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@AllArgsConstructor
+import java.util.Collections;
+import java.util.Map;
+
+@RestController
+@RequiredArgsConstructor
 public class MemberController {
-    private MemberService memberService;
+    private final PasswordEncoder passwordEncoder;
+    private final JwtTokenProvider jwtTokenProvider;
+    private final MemberRepository memberRepository;
 
-    @GetMapping("/")
-    public String index() {
-        return "/home/index";
+    @PostMapping("/join")
+    public Long join(@RequestBody Map<String, String> user) {
+        return memberRepository.save(Member.builder()
+                .email(user.get("email"))
+                .password(passwordEncoder.encode(user.get("password")))
+                .roles(Collections.singletonList("ROLE_USER"))
+                .build()).getId();
     }
-
-    @GetMapping("/member/signup")
-    public String signupForm(Model model) {
-        model.addAttribute("member",new MemberDto());
-
-        return "/member/signupForm";
+    @PostMapping("/login")
+    public String login(@RequestBody Map<String, String> user) {
+        Member member = memberRepository.findByEmail(user.get("email"))
+                .orElseThrow(() -> new IllegalStateException("no such user"));
+        if(!passwordEncoder.matches(user.get("password"), member.getPassword())) {
+            throw new IllegalArgumentException("wrong psw");
+        }
+        return jwtTokenProvider.createToken(member.getUsername(), member.getRoles());
     }
-
-    @PostMapping("/member/signup")
-    public String signup(MemberDto memberDto) {
-        memberService.signUp(memberDto);
-
-        return "redirect:/";
+    @GetMapping("/admin")
+    public String admin() {
+        return "admin";
     }
-    @PostMapping("/member/login")
-    public String login(MemberDto memberDto){
-        memberService.login(memberDto);
-        return "redirect:/";
-    }
-    @GetMapping("/member/login")
-    public String login() {
-        return "/member/loginForm";
+    @GetMapping("/user")
+    public String user() {
+        return "user";
     }
 }
