@@ -1,6 +1,7 @@
 package com.example.springplayground.controller;
 
 import com.example.springplayground.data.ProductDto;
+import com.example.springplayground.data.TemplateDto;
 import com.example.springplayground.model.ProductEntity;
 import com.example.springplayground.service.CountService;
 import lombok.RequiredArgsConstructor;
@@ -16,4 +17,6 @@ public class CountController {
     public Optional<ProductEntity> count(@RequestParam Long id,@RequestBody ProductDto productDto) {
         return countService.addCount(productDto, id);
     }
+
+
 }

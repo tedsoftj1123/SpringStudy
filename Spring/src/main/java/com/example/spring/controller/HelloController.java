@@ -2,6 +2,7 @@ package com.example.spring.controller;
 
 
 import com.example.spring.dto.MemberDTO;
+import com.example.spring.dto.TemplateDto;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Member;
@@ -52,5 +53,10 @@ public class HelloController {
     public MemberDTO aaaa() {
 
         return new MemberDTO("asdf", "asdf", "asdf");
+    }
+
+    @GetMapping("/template")
+    public String templ(@RequestParam String name, @RequestParam String age) {
+        return name + " " + age;
     }
 }
