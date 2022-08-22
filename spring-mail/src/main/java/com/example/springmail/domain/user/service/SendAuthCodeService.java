@@ -1,7 +1,7 @@
 package com.example.springmail.domain.user.service;
 
+import com.example.springmail.domain.user.facade.AuthCodeFacade;
 import com.example.springmail.domain.user.presentation.dto.SendEmailRequest;
-import com.example.springmail.global.utils.EmailUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,21 +11,11 @@ import java.util.Random;
 @RequiredArgsConstructor
 public class SendAuthCodeService {
 
-    private final EmailUtil emailUtil;
+    private final AuthCodeFacade authCodeFacade;
 
     public void execute(SendEmailRequest email) {
-        String to = email.getEmail();
-        String randCode = createRandomCode();
-        emailUtil.sendMail(to, randCode);
+        authCodeFacade.sendEmail(email.getEmail());
     }
 
-    private String createRandomCode() {
-        Random random = new Random();
-        StringBuilder code = new StringBuilder();
-        for(int i=0;i<6;i++) {
-            String randNum = Integer.toString(random.nextInt(9));
-            code.append(randNum);
-        }
-        return code.toString();
-    }
+
 }
