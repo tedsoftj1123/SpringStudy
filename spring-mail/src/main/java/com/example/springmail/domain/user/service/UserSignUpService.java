@@ -13,5 +13,6 @@ public class UserSignUpService {
 
     public void execute(SignUpRequest request) {
         userFacade.validateDuplicateMember(request.getEmail());
+
     }
 }
