@@ -8,6 +8,7 @@ import com.example.springmail.domain.user.presentation.dto.SignUpRequest;
 import com.example.springmail.global.exception.UnVerifiedAuthCodeException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -17,9 +18,10 @@ public class UserSignUpService {
     private final AuthCodeFacade authCodeFacade;
     private final UserRepository userRepository;
 
+
+    @Transactional
     public void execute(SignUpRequest request) {
         userFacade.validateDuplicateMember(request.getEmail());
-
         if(!authCodeFacade.checkVerified(request.getEmail())) {
             throw UnVerifiedAuthCodeException.EXCEPTION;
         }

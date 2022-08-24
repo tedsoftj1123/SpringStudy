@@ -1,6 +1,6 @@
 package Interface;
 
-public class IntefaceImpl implements InterfaceExample{
+public class InterfaceImpl implements InterfaceExample{
     private int volume;
 
     public void turnOn() {
