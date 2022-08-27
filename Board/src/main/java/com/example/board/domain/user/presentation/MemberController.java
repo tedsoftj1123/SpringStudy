@@ -15,7 +15,7 @@ public class MemberController {
 
     @PostMapping("/auth")
     public String signUp(@RequestBody MemberSignUpRequest request) {
-        memberSingUpService.execute(request);
+        return memberSingUpService.execute(request);
     }
 
 }
