@@ -16,6 +16,7 @@ public class MemberRepository {
         return queryFactory
                 .selectFrom(member)
                 .where(member.id.eq(id))
+                .join(member.team.id.eq(team.id))
                 .fetchOne();
     }
 }
