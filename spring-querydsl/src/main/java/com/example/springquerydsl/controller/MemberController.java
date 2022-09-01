@@ -24,7 +24,7 @@ public class MemberController {
     }
 
     @GetMapping
-    public List<Member> serchUser(@RequestParam int a, @RequestParam int b) {
+    public List<MemberCustom> serchUser(@RequestParam int a, @RequestParam int b) {
         return queryFindUserBetweenService.execute(a, b);
     }
 }
