@@ -13,4 +13,6 @@ public class MemberSignUpService {
     public Member search(Long id) {
         return memberRepository.findMemberById(id);
     }
+
+
 }

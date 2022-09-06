@@ -3,7 +3,6 @@ package com.example.springquerydsl.controller;
 import com.example.springquerydsl.domain.Member;
 import com.example.springquerydsl.service.MemberSignUpService;
 import com.example.springquerydsl.service.QueryFindUserBetweenService;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

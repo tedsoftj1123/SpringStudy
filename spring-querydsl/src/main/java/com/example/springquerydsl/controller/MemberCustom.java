@@ -1,6 +1,5 @@
 package com.example.springquerydsl.controller;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -9,6 +8,5 @@ import lombok.Getter;
 public class MemberCustom {
     private Long id;
     private String username;
-
-    private int age;
+    private Integer age;
 }

@@ -1,7 +1,6 @@
 package com.example.springquerydsl.service;
 
 import com.example.springquerydsl.controller.MemberCustom;
-import com.example.springquerydsl.domain.Member;
 import com.example.springquerydsl.domain.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -24,4 +23,6 @@ public class QueryFindUserBetweenService {
                                 .build()
                 ).collect(Collectors.toList());
     }
+
+
 }

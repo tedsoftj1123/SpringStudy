@@ -1,6 +1,5 @@
 package com.example.springquerydsl.domain;
 
-import com.example.springquerydsl.controller.MemberCustom;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 
@@ -18,7 +17,7 @@ public class UserRepositoryCustomImpl implements UserRepositoryCustom {
                 .fetchOne();
     }
 
-    @Override
+
     public List<Member> findAllMemberWithSomething(int s, int e) {
         return queryFactory.selectFrom(member)
                 .where(member.memberAge.between(s, e))
