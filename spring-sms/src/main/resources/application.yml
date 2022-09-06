@@ -11,3 +11,8 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+  aws:
+    ses:
+      acces-key: ${MAIL_ACCESS}
+      secret-key: ${MAIL_SECRET}
