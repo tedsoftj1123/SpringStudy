@@ -14,7 +14,7 @@ public class SendAuthCodeService {
     public void execute(UserSendMailRequest request) {
         String to = request.getTo();
         String authCode = generateRandomCode();
-        awsSESUtil.send(request.getTo(), authCode);
+        awsSESUtil.send(to, authCode);
     }
 
     private String generateRandomCode() {
