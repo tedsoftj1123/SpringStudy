@@ -18,3 +18,4 @@ aws:
    ses:
     access-key: ${MAIL_ACCESS}
     secret-key: ${MAIL_SECRET}
+    verified-email: ${MAIL_FROM}
