@@ -23,6 +23,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.apache.commons:commons-lang3:3.12.0'
     implementation 'com.amazonaws:aws-java-sdk-ses:1.12.296'
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.apache.poi:poi:5.2.2'
     implementation 'org.apache.poi:poi-ooxml:5.2.2'
     compileOnly 'org.projectlombok:lombok'
