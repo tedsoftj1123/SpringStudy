@@ -13,14 +13,14 @@ public class UserRepositoryCustomImpl implements UserRepositoryCustom {
     private final JPAQueryFactory queryFactory;
     @Override
     public Member findMemberById(Long id) {
-        return queryFactory.selectFrom(member)
+        return queryFactory.select(member)
+                .from(member)
+                .leftJoin(member.team, team)
                 .where(member.id.eq(id))
-                .join(team)
-                .on(member.team.eq(team))
-                .fetchOne();
+                .fetchJoin().fetchOne();
     }
 
-
+    @Override
     public List<Member> findAllMemberWithSomething(int s, int e) {
         return queryFactory.selectFrom(member)
                 .where(member.memberAge.between(s, e))
