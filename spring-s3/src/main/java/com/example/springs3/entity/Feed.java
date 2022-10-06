@@ -20,15 +20,10 @@ public class Feed {
     private String content;
 
     private String contentImgUrl;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
     @Builder
-    public Feed(String title, String content, String contentImgUrl, User user) {
+    public Feed(String title, String content, String contentImgUrl) {
         this.title = title;
         this.content = content;
         this.contentImgUrl = contentImgUrl;
-        this.user = user;
     }
 }
