@@ -19,10 +19,12 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-websocket'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'com.corundumstudio.socketio:netty-socketio:1.7.22'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
