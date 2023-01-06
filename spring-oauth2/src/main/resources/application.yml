@@ -6,4 +6,4 @@ spring:
           google:
             client-id: ${CLIENT_ID}
             redirect-uri: ${REDIRECT_URL}
-            client-secret: :
+            client-secret: : ${CLIENT_SECRET}

@@ -1,1 +1,3 @@
 .DS_STORE
+# Default ignored files
+/spring-kotlin/.idea/workspace.xml
