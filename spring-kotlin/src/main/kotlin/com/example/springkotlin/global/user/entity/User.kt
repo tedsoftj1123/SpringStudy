@@ -8,7 +8,7 @@ import java.util.UUID
 @Entity
 class User(
     @Id
-    val userId: UUID = UUID.randomUUID(),
+    val userId: UUID,
 
     val accountId: String,
 
