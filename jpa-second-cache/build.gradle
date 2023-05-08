@@ -28,10 +28,11 @@ dependencies {
     implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
     runtimeOnly 'org.postgresql:postgresql'
+    implementation group: 'org.hibernate', name: 'hibernate-ehcache', version: '4.3.11.Final'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-tasks.withType(KotlinCompile) {
+tasks.withType(KotlinCompile).configureEach {
     kotlinOptions {
         freeCompilerArgs = ['-Xjsr305=strict']
         jvmTarget = '17'

@@ -5,8 +5,8 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgres://localhost:5432/jpa
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
+    username: root
+    password: 11111111
   jpa:
     show-sql: true
     hibernate:
@@ -14,3 +14,8 @@ spring:
     properties:
       hibernate:
         format_sql: true
+        cache:
+          region:
+            factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
+          use_second_level_cache: true
+        generate_statistics: true
